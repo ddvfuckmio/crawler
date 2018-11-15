@@ -26,7 +26,7 @@ func getCategories(link string) ([]string, []string) {
 
 	var categoryCollector = colly.NewCollector(collectorCommonFunc...)
 	var categoryUrls = make([]string, 0, 400)
-	var categorys = make([]string, 0, 400)
+	var categories = make([]string, 0, 400)
 	categoryCollector.OnHTML(".category_hotword.Kx", func(element *colly.HTMLElement) {
 		categoryCollector.MaxDepth = 1
 
@@ -34,7 +34,7 @@ func getCategories(link string) ([]string, []string) {
 			url := element.Attr("href")
 			category := element.Text
 			categoryUrls = append(categoryUrls, url)
-			categorys = append(categorys, category)
+			categories = append(categories, category)
 		})
 
 	})
@@ -44,12 +44,12 @@ func getCategories(link string) ([]string, []string) {
 			url := element.Attr("href")
 			category := element.Text
 			categoryUrls = append(categoryUrls, url)
-			categorys = append(categorys, category)
+			categories = append(categories, category)
 		})
 	})
 
 	categoryCollector.Visit(link)
-	return categoryUrls, categorys
+	return categoryUrls, categories
 }
 
 //func getDescription(courseId string) string {
