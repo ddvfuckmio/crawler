@@ -1,4 +1,4 @@
-package db
+package models
 
 import (
 	"github.com/jinzhu/gorm"
@@ -29,6 +29,12 @@ type Course struct {
 	PlayCount      int    `gorm:"column:playCount"`
 }
 
+type Category struct {
+	FirstCategory  string
+	SecondCategory string
+	Url            string
+}
+
 func (Course) TableName() string {
 	return "courses"
 }
@@ -44,10 +50,10 @@ func SaveCourses(courses []Course) {
 }
 
 func main() {
-	users:=make([]*User,10)
+	users := make([]*User, 10)
 	users[0] = &User{
-		Age:10,
-		Name:"ddv",
+		Age:  10,
+		Name: "ddv",
 	}
 	log.Println(users[0])
 	checkUsers(users)
