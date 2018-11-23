@@ -160,9 +160,7 @@ func httpGetCourseList(href string) ([]models.Course) {
 		}
 		courses = append(courses, course)
 	}
-
 	return courses
-
 }
 
 func splitHref(href string) (firstCategory string, secondCategory string) {

@@ -37,7 +37,7 @@ type Category struct {
 }
 
 func (Course) TableName() string {
-	return "courses"
+	return "courses1"
 }
 
 func SaveCourses(courses []Course) {
